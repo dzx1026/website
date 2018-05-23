@@ -1,0 +1,18 @@
+{% extends 'filmspace/__base__.html' %}
+
+{% block title %}tell you {% endblock %}
+{% block beforebody %}
+    <meta name="keywords" content="百度云分享，电影资源，链接，热门">
+{% endblock %}
+
+{% block body %}
+    {% load static %}
+    {% for article in articles %}
+        <div style="display: inline-block;margin: 5px;width: 18%;height: 25%;text-align: center;">
+            <a href="{% url 'filmspace:getfilminfo' article.id %}">
+                <div><img  src="upload/{{ article.Cover }}" width="100%" height="100%"></div>
+                {{ article.Title }}
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}

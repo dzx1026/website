@@ -1,0 +1,35 @@
+
+{% extends 'filmspace/__base__.html' %}
+
+{% block title %}tell you {% endblock %}
+{% block beforebody %}
+    <meta name="keywords" content="百度云分享，电影资源，链接，热门">
+{% endblock %}
+
+{% block body %}
+
+        <!-- articlelist start -->
+					<div class="container" style="margin-top: 5px;">
+						<div class="list-group col-lg-9">
+								<div >
+									<h4 style="display: inline-block;padding-right: 10px;">{{ article.Title }}</h4>
+									<small>
+										<i class="fa fa-clock-o">2天前</i>&nbsp
+										<i class="fa fa-comments-o">50评价</i>&nbsp
+										<i class="fa fa-thumbs-o-up">50点赞</i>
+									</small>
+								</div>
+                                <div id="info" >
+                                    {% autoescape off %}
+									    {{ article.Content }}
+                                    {% endautoescape %}
+								</div>
+                                <div>
+                                    百度云链接：{{ article.ResourceUrl }}
+                                    <span>密码：{{ article.ResourcePwd }}</span>
+                                </div>
+						</div>
+					</div>
+					<!-- articlelist end -->
+
+{% endblock %}
